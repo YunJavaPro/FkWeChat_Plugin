@@ -85,7 +85,7 @@ export default function PluginDetail() {
   return (
     <div className="min-h-screen bg-white">
       {/* 固定的返回按钮 */}
-      <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="max-w-3xl mx-auto px-4 py-4">
           <Link
             to="/"
@@ -97,7 +97,7 @@ export default function PluginDetail() {
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-6 sm:py-8">
+      <div className="max-w-3xl mx-auto px-4 py-6 sm:py-8 pt-16">
 
         {/* 插件信息 */}
         <div className="rounded-md border border-gray-200 p-5 mb-6">
