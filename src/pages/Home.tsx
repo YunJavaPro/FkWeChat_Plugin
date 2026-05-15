@@ -71,6 +71,20 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 固定的插件统计信息 */}
+      {!isLoading && !error && filteredPlugins.length > 0 && (
+        <div className="flex-shrink-0 border-b border-gray-200 bg-white">
+          <div className="mx-auto max-w-5xl px-4 py-3 sm:px-6">
+            <div className="flex items-center gap-2">
+              <Package className="h-4 w-4 text-gray-500" />
+              <span className="text-sm text-gray-500">
+                共 <span className="font-semibold text-gray-900">{filteredPlugins.length}</span> 个插件
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* 可滚动的插件列表 */}
       <div ref={scrollContainerRef} className="flex-1 overflow-y-auto min-h-0">
         <div className="mx-auto max-w-5xl px-4 py-5 sm:px-6">
@@ -104,12 +118,6 @@ export default function Home() {
             />
           ) : (
             <>
-              <div className="flex items-center gap-2 mb-3">
-                <Package className="h-4 w-4 text-gray-500" />
-                <span className="text-sm text-gray-500">
-                  共 <span className="font-semibold text-gray-900">{filteredPlugins.length}</span> 个插件
-                </span>
-              </div>
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 pb-5">
                 {filteredPlugins.map((plugin) => (
                   <PluginCard key={plugin.id} plugin={plugin} />
