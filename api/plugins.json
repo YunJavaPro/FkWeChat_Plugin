@@ -5,7 +5,7 @@
     "description": "",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/FkAi回复/FkAi回复.zip",
     "version": "1.0.0",
-    "readme": ""
+    "readme": "- 长按消息打开UI设置面板\n- 配置按会话独立，自动保存\n\n- 授权体系：\n- 好友授权 UI勾选好友可触发AI\n- 群聊授权 UI勾选群可触发AI\n- 群成员授权 先选群再选成员，被选中的成员可触发AI\n- 群内发 /群聊回复开关 可自助授权\n\n- /help 查看命令说明书\n- /config 查看当前会话配置\n- /cmd 切换命令权限 开/关\n- /mode 或 /bug 切换消息模式(off/parse/raw)\n- /ai 切换AI回复开关\n- /group 切换群聊回复开关\n- /at 切换@触发开关\n- /api 查看API列表\n- /api 数字 切换API\n- /model 查看模型列表\n- /model 数字 切换模型\n- /style 查看可选风格\n- /style 风格名 切换风格\n- /lastcall 查看最后一次通话时长，已失效\n\n- 消息模式：\n- off 仅普通文本触发AI\n- parse 富消息转人话后送AI\n- raw 富消息原文直送AI\n\n- 可选风格(自己加)：\n- 随和 友善简洁回复\n- 复读机 不走AI直接复读\n"
   },
   {
     "author": "cuan",
@@ -29,7 +29,7 @@
     "description": "长按消息进入菜单打开ui",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/关键提醒/关键提醒.zip",
     "version": "1.0.0",
-    "readme": ""
+    "readme": "长按消息进入菜单打开ui\n"
   },
   {
     "author": "吃不香菜",
@@ -37,7 +37,7 @@
     "description": "复读开关 默认回复 回复列表",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/复读机与默认回复/复读机与默认回复.zip",
     "version": "1.0.0",
-    "readme": ""
+    "readme": "- 插件：复读机与默认回复\n\n- 功能：\n- 支持复读指定联系人消息\n- 支持给指定联系人设置默认回复\n- 支持长按消息打开 UI\n- 支持联系人授权白名单\n- 支持自定义默认回复语\n- 回复语和联系人会过滤路径、视频、图片等污染内容\n\n- 打开 UI：\n- 长按聊天消息\n- 或自己发送：复读ui\n\n- UI 功能：\n- 复读开关：开启/关闭当前联系人复读\n- 默认回复开关：开启/关闭当前联系人默认回复\n- 默认回复设置：从回复语列表选择回复内容\n- 回复语管理：新增/删除自定义回复语\n- 授权门槛：开启后仅授权联系人触发\n- 授权/取消当前联系人：快速授权当前聊天\n- 联系人授权：从联系人列表勾选授权好友\n\n- 命令：\n- 复读ui：打开设置界面\n- 复读开关：切换当前会话复读\n- 默认回复：切换当前会话默认回复\n- 回复列表：查看回复语列表\n- 默认回复 1：设置当前会话使用第1条回复语\n- 授权开关：开启/关闭授权门槛\n- 授权当前：授权当前会话\n- 取消授权：取消当前会话授权\n\n- 规则：\n- 命令只有自己发送有效\n- 自己普通消息不会触发回复\n- 复读优先于默认回复\n- 授权门槛开启后，未授权联系人不会触发\n- 系统默认回复为：你好我现在有事不在，待会再与你联系\n\n- 配置文件：\n- /storage/emulated/0/Android/media/com.tencent.mm/FkWeChat/Plugin/复读机与默认回复/config.json\n"
   },
   {
     "author": "雲上升",
@@ -53,6 +53,6 @@
     "description": "长按消息菜单调出ui勾选发送",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/群发助手/群发助手.zip",
     "version": "1.0.0",
-    "readme": ""
+    "readme": "# 群发助手 - \n- 长按任意消息菜单调出ui\n- 建议新建文件夹把这次要发图片视频拉过去\n- mt复制这个路径到ui发送就是全部发了\n\n---\n\n## 功能\n\n- 多选私聊联系人\n- 多选群聊\n- 文本消息群发\n- 图片群发（自动扫描文件夹）\n- 视频群发（自动扫描文件夹）\n- 自动发送间隔，降低风控风险\n\n---\n\n### 界面说明\n\n- 选私聊 - 勾选要发送的私聊联系人\n- 选群聊 - 勾选要发送的群聊\n- 文本内容 - 输入要群发的文字\n- 图片路径 - 输入图片文件或文件夹路径\n- 视频路径 - 输入视频文件或文件夹路径\n- 发送 - 开始群发\n\n### 路径格式\n\n| 输入 | 效果 |\n|------|------|\n| `/storage/emulated/0/Pictures/` | 扫描整个文件夹，自动添加所有图片/视频 |\n| `/storage/emulated/0/DCIM/Camera/a.jpg` | 添加单个文件 |\n| `/path/a.jpg,/path/b.jpg` | 逗号分隔批量添加多个文件 |\n\n图片支持格式：`jpg` `jpeg` `png` `webp` `gif`\n视频支持格式：`mp4` `avi` `mov` `mkv` `3gp`\n\n---\n\n## 发送逻辑\n\n- 先发文本，再依次发送图片，最后依次发送视频\n- 每个目标之间间隔 1.5 秒\n- 每个媒体文件之间间隔 0.5 秒\n- 发送完成后显示成功/失败统计\n\n---\n\n## 免责声明\n\n- 本脚本免费分享，用爱发电\n- 请勿用于骚扰、诈骗等违法行为\n- 使用者自行承担因群发导致的账号风险\n- 不提供一对一技术支持\n\n---\n\n## 常见问题\n\n**Q: 发 `/群发` 没反应？**\n\n- 确认脚本文件已放入正确目录\n- 确认文件名是 `Main.java`\n- 重启插件或微信后重试\n- 检查 log 是否有报错\n\n**Q: 图片/视频发送失败？**\n\n- 检查文件路径是否正确\n- 确认文件格式是否支持\n- 确认文件未被其他应用占用\n\n**Q: 发送太慢？**\n\n- 间隔是为了降低风控风险\n- 不建议改太快，容易被微信限频\n"
   }
 ]
