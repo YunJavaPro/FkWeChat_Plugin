@@ -3,6 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, User, Download, Loader2, CheckCircle, FileText } from 'lucide-react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
 import { useStore } from '@/store/useStore';
 import { LoadingSpinner, EmptyState } from '@/components/ui';
 
@@ -160,9 +163,58 @@ export default function PluginDetail() {
                 <FileText className="h-4 w-4 text-gray-500" />
                 <h2 className="text-sm font-semibold text-gray-900">插件说明</h2>
               </div>
-              <pre className="whitespace-pre-wrap text-sm text-gray-600 bg-gray-50 rounded-md p-4 font-mono leading-relaxed">
-                {readmeContent}
-              </pre>
+              <div className="markdown-body max-w-full overflow-x-auto text-gray-700">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeHighlight]}
+                  components={{
+                    h1: ({ ...props }) => <h1 className="text-2xl font-bold mt-6 mb-4 border-b border-gray-200 pb-2" {...props} />,
+                    h2: ({ ...props }) => <h2 className="text-xl font-bold mt-5 mb-3 border-b border-gray-200 pb-1" {...props} />,
+                    h3: ({ ...props }) => <h3 className="text-lg font-semibold mt-4 mb-2" {...props} />,
+                    h4: ({ ...props }) => <h4 className="text-base font-semibold mt-3 mb-1" {...props} />,
+                    p: ({ ...props }) => <p className="mb-3 leading-relaxed" {...props} />,
+                    ul: ({ ...props }) => <ul className="list-disc list-inside mb-3 space-y-1" {...props} />,
+                    ol: ({ ...props }) => <ol className="list-decimal list-inside mb-3 space-y-1" {...props} />,
+                    li: ({ ...props }) => <li className="text-gray-700" {...props} />,
+                    blockquote: ({ ...props }) => (
+                      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-600 bg-gray-50 rounded-r-md py-2 pr-2" {...props} />
+                    ),
+                    code: ({ className, children, ...props }) => {
+                      const match = /language-(\w+)/.exec(className || '');
+                      return match ? (
+                        <div className="my-4 rounded-md overflow-hidden">
+                          <pre className="bg-gray-50 p-4 overflow-x-auto text-sm">
+                            <code className={className} {...props}>
+                              {children}
+                            </code>
+                          </pre>
+                        </div>
+                      ) : (
+                        <code className="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                    pre: ({ ...props }) => <>{props.children}</>,
+                    a: ({ ...props }) => (
+                      <a className="text-blue-600 hover:text-blue-800 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
+                    ),
+                    table: ({ ...props }) => (
+                      <div className="my-4 overflow-x-auto">
+                        <table className="min-w-full border-collapse border border-gray-300" {...props} />
+                      </div>
+                    ),
+                    thead: ({ ...props }) => <thead className="bg-gray-50" {...props} />,
+                    th: ({ ...props }) => <th className="border border-gray-300 px-4 py-2 text-left font-semibold" {...props} />,
+                    td: ({ ...props }) => <td className="border border-gray-300 px-4 py-2" {...props} />,
+                    img: ({ ...props }) => (
+                      <img className="max-w-full h-auto rounded-md my-4" loading="lazy" {...props} />
+                    ),
+                  }}
+                >
+                  {readmeContent}
+                </ReactMarkdown>
+              </div>
             </div>
           );
         })()}
