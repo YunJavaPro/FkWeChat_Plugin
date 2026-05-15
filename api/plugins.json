@@ -1,5 +1,13 @@
 [
   {
+    "author": "吃不香菜",
+    "name": "FkAi回复",
+    "description": "",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/FkAi回复/FkAi回复.zip",
+    "version": "1.0.0",
+    "readme": ""
+  },
+  {
     "author": "cuan",
     "name": "MCP服务器插件",
     "description": "基于FkWeChat宿主脚本环境实现的MCP服务器插件",
@@ -16,11 +24,35 @@
     "readme": "## v1.0.7\n- 修复了一些已知问题\n\n## 指令列表\n- `点歌 歌名`（仅自己可用）\n"
   },
   {
+    "author": "吃不香菜",
+    "name": "关键提醒",
+    "description": "长按消息进入菜单打开ui",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/关键提醒/关键提醒.zip",
+    "version": "1.0.0",
+    "readme": ""
+  },
+  {
+    "author": "吃不香菜",
+    "name": "复读机与默认回复",
+    "description": "复读开关 默认回复 回复列表",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/复读机与默认回复/复读机与默认回复.zip",
+    "version": "1.0.0",
+    "readme": ""
+  },
+  {
     "author": "雲上升",
     "name": "快捷操作",
     "description": "",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/快捷操作/快捷操作.zip",
     "version": "1.0.3",
+    "readme": ""
+  },
+  {
+    "author": "吃不香菜",
+    "name": "群发助手",
+    "description": "长按消息菜单调出ui勾选发送",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/群发助手/群发助手.zip",
+    "version": "1.0.0",
     "readme": ""
   }
 ]
