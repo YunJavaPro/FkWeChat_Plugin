@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* 固定的插件统计信息 */}
       {!isLoading && !error && filteredPlugins.length > 0 && (
-        <div className="flex-shrink-0 border-b border-gray-200 bg-white">
+        <div className="flex-shrink-0 bg-white">
           <div className="mx-auto max-w-5xl px-4 py-3 sm:px-6">
             <div className="flex items-center gap-2">
               <Package className="h-4 w-4 text-gray-500" />
