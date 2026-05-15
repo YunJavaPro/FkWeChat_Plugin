@@ -1,0 +1,18 @@
+[
+  {
+    "author": "雲上升",
+    "name": "QQ点歌",
+    "description": "",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/QQ点歌/QQ点歌.zip",
+    "version": "1.0.7",
+    "readme": "## v1.0.7\n- 修复了一些已知问题\n\n## 指令列表\n- `点歌 歌名`（仅自己可用）\n"
+  },
+  {
+    "author": "雲上升",
+    "name": "快捷操作",
+    "description": "",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/快捷操作/快捷操作.zip",
+    "version": "1.0.3",
+    "readme": ""
+  }
+]
