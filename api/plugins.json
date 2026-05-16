@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "author": "雲上升",
+    "name": "QQ点歌",
+    "description": "为微信添加点歌服务",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/QQ点歌.zip",
+    "version": "1.0.7",
+    "readme": "## 更新日志\n- 修复了一些已知问题\n\n## 指令列表\n- `点歌 歌名`（仅自己可用）\n"
+  },
+  {
+    "author": "雲上升",
+    "name": "视频解析",
+    "description": "解析视频链接并发送文件",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/视频解析.zip",
+    "version": "1.0.3",
+    "readme": "| 功能属性 | 说明信息 |\n| :--- | :--- |\n| **支持平台** | 抖音、快手、小红书、哔哩哔哩 |\n| **使用方式** | 直接输入/发送视频链接即可 |\n| **权限说明** | 仅限个人专属调用 |"
+  }
+]
