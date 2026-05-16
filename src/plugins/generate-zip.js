@@ -46,6 +46,15 @@ function addFolderToZip(zip, folderPath, zipPath = '') {
 
 async function generatePluginsZip() {
   try {
+    if (!fs.existsSync(outputPluginsDir)) {
+      fs.mkdirSync(outputPluginsDir, { recursive: true });
+    }
+
+    if (!fs.existsSync(sourcePluginsDir)) {
+      console.warn(`插件目录不存在: ${sourcePluginsDir}`);
+      return;
+    }
+
     // 动态获取插件文件夹列表
     const pluginFolders = fs.readdirSync(sourcePluginsDir).filter(file => {
       return fs.statSync(path.join(sourcePluginsDir, file)).isDirectory();
