@@ -1,6 +1,14 @@
 [
   {
     "author": "雲上升",
+    "name": "Cdn捕捉",
+    "description": "监听Cdn上传及下载",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/Cdn捕捉.zip",
+    "version": "1.0.0",
+    "readme": "该插件用于捕获和处理CDN下载和上传的内容，以便进行分析和优化。\n\n## 功能\n\n- CDN下载内容捕获\n- CDN上传内容捕获\n- 内容分析\n- 优化建议\n- 多种文件类型支持\n- 详细日志记录\n\n## 使用方法\n\n1. 配置插件设置\n2. 开始捕获CDN下载和上传内容\n3. 分析捕获的内容\n4. 应用优化建议\n5. 查看详细日志\n\n## 文件类型支持\n\n插件支持以下文件类型：\n\n- 高清图\n- 普通图\n- 缩略图\n- 视频\n- 通用文件\n- 小视频\n- 聊天语音\n- 视频号图片\n- 朋友圈视频\n- 视频号视频\n- APP文件\n\n## 日志记录\n\n插件会记录详细的日志信息，包括：\n\n- 下载和上传的文件信息\n- 文件类型\n- 文件大小\n- 文件路径\n- 下载和上传的状态\n\n## 优化建议\n\n根据捕获的内容，插件会提供优化建议，以提高CDN的性能和效率。"
+  },
+  {
+    "author": "雲上升",
     "name": "QQ点歌",
     "description": "为微信添加点歌服务",
     "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/QQ点歌.zip",
