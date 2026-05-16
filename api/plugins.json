@@ -1,5 +1,13 @@
 [
   {
+    "author": "樊斌",
+    "name": "AI自动回复",
+    "description": "增强版AI自动回复，支持语音、记忆、人格、RAG、频率控制、黑白名单",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/AI自动回复拟人版.zip",
+    "version": "3.0.0",
+    "readme": ""
+  },
+  {
     "author": "吃不香菜",
     "name": "FkAi回复",
     "description": "",
