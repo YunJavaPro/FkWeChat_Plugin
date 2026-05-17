@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 const sourcePluginsDir = path.join(__dirname, '..', '..', 'main', 'plugins');
 const outputPluginsDir = path.join(__dirname, '..', '..', 'dist', 'plugins');
 
-// 解码 Unicode 转义字符串（如 \u96F2\u4E0A\u5347 → 雲上升）
+// 解码 Unicode 转义字符串
 function decodeUnicode(str) {
   return str.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
@@ -46,6 +46,15 @@ function addFolderToZip(zip, folderPath, zipPath = '') {
 
 async function generatePluginsZip() {
   try {
+    if (!fs.existsSync(outputPluginsDir)) {
+      fs.mkdirSync(outputPluginsDir, { recursive: true });
+    }
+
+    if (!fs.existsSync(sourcePluginsDir)) {
+      console.warn(`插件目录不存在: ${sourcePluginsDir}`);
+      return;
+    }
+
     // 动态获取插件文件夹列表
     const pluginFolders = fs.readdirSync(sourcePluginsDir).filter(file => {
       return fs.statSync(path.join(sourcePluginsDir, file)).isDirectory();
@@ -57,17 +66,13 @@ async function generatePluginsZip() {
     
     for (const folder of pluginFolders) {
       const pluginDir = path.join(sourcePluginsDir, folder);
-      const outputPluginDir = path.join(outputPluginsDir, folder);
-      const zipPath = path.join(outputPluginDir, `${folder}.zip`);
+      // 直接存放在 dist/plugins/ 目录下
+      const zipPath = path.join(outputPluginsDir, `${folder}.zip`);
       
       const mainJavaPath = path.join(pluginDir, 'main.java');
       const infoPropPath = path.join(pluginDir, 'info.prop');
       
       if (fs.existsSync(mainJavaPath) && fs.existsSync(infoPropPath)) {
-        if (!fs.existsSync(outputPluginDir)) {
-          fs.mkdirSync(outputPluginDir, { recursive: true });
-        }
-        
         const zip = new JSZip();
         
         // 递归添加插件文件夹内的所有内容

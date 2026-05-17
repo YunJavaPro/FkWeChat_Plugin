@@ -11,7 +11,7 @@ const sourcePluginsDir = path.join(__dirname, '..', '..', 'main', 'plugins');
 const outputApiDir = path.join(__dirname, '..', '..', 'dist', 'api');
 const outputFile = path.join(outputApiDir, 'plugins.json');
 
-// 解码 Unicode 转义字符串（如 \u96F2\u4E0A\u5347 → 雲上升）
+// 解码 Unicode 转义字符串
 function decodeUnicode(str) {
   return str.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
 }
@@ -37,36 +37,44 @@ function parseInfoProp(content) {
 
 async function generatePluginsAPI() {
   try {
-    // 动态获取插件文件夹列表
-    const pluginFolders = fs.readdirSync(sourcePluginsDir).filter(file => {
-      return fs.statSync(path.join(sourcePluginsDir, file)).isDirectory();
-    });
-    
     const plugins = [];
-    
-    for (const folder of pluginFolders) {
-      const infoPropPath = path.join(sourcePluginsDir, folder, 'info.prop');
-      const readmePath = path.join(sourcePluginsDir, folder, 'README.md');
+
+    if (fs.existsSync(sourcePluginsDir)) {
+      // 动态获取插件文件夹列表
+      const pluginFolders = fs.readdirSync(sourcePluginsDir).filter(file => {
+        return fs.statSync(path.join(sourcePluginsDir, file)).isDirectory();
+      });
       
-      if (fs.existsSync(infoPropPath)) {
-        const content = fs.readFileSync(infoPropPath, 'utf-8');
-        const props = parseInfoProp(content);
+      for (const folder of pluginFolders) {
+        const infoPropPath = path.join(sourcePluginsDir, folder, 'info.prop');
         
-        // 读取 README.md 内容
-        let readme = '';
-        if (fs.existsSync(readmePath)) {
-          readme = fs.readFileSync(readmePath, 'utf-8');
+        if (fs.existsSync(infoPropPath)) {
+          const content = fs.readFileSync(infoPropPath, 'utf-8');
+          const props = parseInfoProp(content);
+          
+          // 查找忽略大小写的 readme.md 文件
+          let readme = '';
+          const filesInDir = fs.readdirSync(path.join(sourcePluginsDir, folder));
+          const readmeFile = filesInDir.find(f => f.toLowerCase() === 'readme.md');
+          
+          if (readmeFile) {
+            const actualReadmePath = path.join(sourcePluginsDir, folder, readmeFile);
+            readme = fs.readFileSync(actualReadmePath, 'utf-8');
+          }
+          
+          plugins.push({
+            author: props.author || '未知作者',
+            name: props.name || folder,
+            description: props.desc || '',
+            // 去掉了多余的 /${folder}/
+            downloadUrl: `https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/${folder}.zip`,
+            version: props.version || '1.0.0',
+            readme
+          });
         }
-        
-        plugins.push({
-          author: props.author || '未知作者',
-          name: props.name || folder,
-          description: props.desc || '',
-          downloadUrl: `https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/${folder}/${folder}.zip`,
-          version: props.version || '1.0.0',
-          readme
-        });
       }
+    } else {
+      console.warn(`插件目录不存在: ${sourcePluginsDir}`);
     }
     
     if (!fs.existsSync(outputApiDir)) {
