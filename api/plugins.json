@@ -8,6 +8,14 @@
     "readme": "该插件用于捕获和处理CDN下载和上传的内容，以便进行分析。\n\n## 功能\n\n- CDN下载内容捕获\n- CDN上传内容捕获\n\n## 日志记录\n\n插件会记录详细的日志信息，包括：\n\n- 下载和上传的文件信息\n- 文件类型\n- 文件大小\n- 文件路径\n- 下载和上传的状态"
   },
   {
+    "author": "祁龍",
+    "name": "Logo生成器",
+    "description": "支持画质增强，发送 logo / lg 呼出面板",
+    "downloadUrl": "https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/Logo生成器.zip",
+    "version": "1.0.0",
+    "readme": ""
+  },
+  {
     "author": "雲上升",
     "name": "QQ点歌",
     "description": "为微信添加点歌服务",
