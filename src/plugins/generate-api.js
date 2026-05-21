@@ -77,7 +77,7 @@ function generateApi() {
         author: props.author || '未知',
         name: props.name || folder,
         description: props.desc || '',
-        downloadUrl: `https://YunJavaPro.github.io/FkWeChat_Plugin/plugins/${encodeURIComponent(folder)}.zip`,
+        downloadUrl: `https://down.yunpro.club/plugins/${encodeURIComponent(folder)}.zip`,
         version: props.version || '1.0.0',
         readme: readme
       });
