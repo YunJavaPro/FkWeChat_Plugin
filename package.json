@@ -1,0 +1,27 @@
+{
+  "name": "FkWeChat_Plugin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm generate-plugins && pnpm -F @fkwechat/plugin-repo docs:dev",
+    "generate-plugins": "node docs/.vitepress/generate-plugins.js",
+    "generate-zip": "node src/plugins/generate-zip.js",
+    "generate-api": "node src/plugins/generate-api.js",
+    "build": "pnpm generate-plugins && pnpm -F @fkwechat/plugin-repo docs:build && pnpm generate-zip && pnpm generate-api",
+    "preview": "pnpm -F @fkwechat/plugin-repo docs:preview",
+    "format": "prettier --cache --write --ignore-unknown ."
+  },
+  "dependencies": {
+    "@types/node": "22.15.3",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3",
+    "vitepress": "2.0.0-alpha.5"
+  },
+  "volta": {
+    "node": "22.15.0",
+    "pnpm": "10.12.1"
+  },
+  "packageManager": "pnpm@10.12.1"
+}

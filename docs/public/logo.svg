@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+	<defs>
+		<clipPath id="full-rect">
+			<rect width="192" height="192" rx="44" ry="44" />
+		</clipPath>
+		<linearGradient id="cool-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#6366F1" />
+			<stop offset="100%" stop-color="#06B6D4" />
+		</linearGradient>
+		<filter id="smooth-shadow" x="-50%" y="-50%" width="200%" height="200%">
+			<feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.35" />
+		</filter>
+		<linearGradient id="text-light" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop offset="0%" stop-color="#FFFFFF" />
+			<stop offset="100%" stop-color="#E0F2FE" />
+		</linearGradient>
+	</defs>
+	<rect width="192" height="192" fill="url(#cool-grad)" clip-path="url(#full-rect)" />
+	<g filter="url(#smooth-shadow)" transform="translate(27, 72)">
+		<g stroke="url(#text-light)" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" fill="none">
+			<path d="M0,0 H26 M0,24 H18 M0,0 V48" />
+			<path d="M44,0 V48 M44,24 L68,0 M44,24 L68,48" />
+			<path d="M82,0 L96,48 L110,20 L124,48 L138,0" />
+		</g>
+		<rect x="-7" y="66" width="84" height="13" rx="7" fill="url(#text-light)" />
+	</g>
+	<rect width="190" height="190" x="1" y="1" rx="43" ry="43" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5" />
+</svg>

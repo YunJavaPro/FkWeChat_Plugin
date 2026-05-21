@@ -1,0 +1,11 @@
+{
+  "name": "@fkwechat/plugin-repo",
+  "author": "FkWeChat",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  }
+}
