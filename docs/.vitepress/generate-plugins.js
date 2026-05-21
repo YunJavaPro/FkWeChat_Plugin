@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const sourcePluginsDir = path.join(__dirname, '..', '..', 'main', 'plugins');
 const outputPluginsDocsDir = path.join(__dirname, '..', 'plugins');
 const BASE_PATH = '';
-const DOWNLOAD_PATH = 'https://down.yunpro.club';
+const DOWNLOAD_PATH = '';
 
 function decodeUnicode(str) {
   return str.replace(/\\u([0-9a-fA-F]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
