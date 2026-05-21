@@ -5,7 +5,7 @@
 ### 获取插件列表
 
 ```
-GET https://YunJavaPro.github.io/FkWeChat_Plugin/api/plugins.json
+GET https://down.yunpro.club/api/plugins.json
 ```
 
 返回格式：
