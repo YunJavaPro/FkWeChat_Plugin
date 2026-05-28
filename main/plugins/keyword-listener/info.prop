@@ -1,0 +1,4 @@
+name=关键词监听
+author=YSJohnson
+version=1.2
+desc=监听指定联系人或群聊的消息关键词，触发时发送提醒通知
